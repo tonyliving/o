@@ -267,10 +267,10 @@ for a in range(0, app_count):
     access_token_list[a]=getmstoken(a)
 print('')    
 #获取天气
-if len(other_config['email']) <= 1:
+if len(other_config['city']) <= 1:
     city='Beijing'
 else:
-    city=other_config['email'][1]
+    city=other_config['city'][1]
 headers={'Accept-Language': 'zh-CN'}
 weather=req.get(r'http://wttr.in/'+city+r'?format=4&?m',headers=headers).text
 

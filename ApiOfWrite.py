@@ -293,7 +293,7 @@ def oneDrive(a):
     # 新建文件夹
     try:
         print('    新建文件夹')
-        url = r'https://graph.microsoft.com/v1.0/me/drive/root:/test/App/children'
+        url = r'https://graph.microsoft.com/v1.0/me/drive/items/01VV5E3CXJW3V5JZIDUFG3GZTTKOQN6GGR/children'
         data = {
             "name": "New Folder",
             "folder": {},

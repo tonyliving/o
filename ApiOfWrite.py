@@ -108,7 +108,7 @@ def apiReq(method, a, url, data='QAQ'):
 
 # 上传文件到onedrive(小于4M)
 def uploadFile(a, filesname, f):
-    url = r'https://graph.microsoft.com/v1.0/me/drive/root:/AutoApi/App' + \
+    url = r'https://graph.microsoft.com/v1.0/me/drive/root:/new/App' + \
         str(a)+r'/'+filesname+r':/content'
     if apiReq('put', a, url, f).status_code >= 300:
         if sys._getframe().f_code.co_name not in log_list[a]:
@@ -136,14 +136,14 @@ def sendEmail(a, subject, content):
 def excelWrite(a, filesname, sheet):
     try:
         print('    添加工作表')
-        url = r'https://graph.microsoft.com/v1.0/me/drive/root:/AutoApi/App' + \
+        url = r'https://graph.microsoft.com/v1.0/me/drive/root:/test/App' + \
             str(a)+r'/'+filesname+r':/workbook/worksheets/add'
         data = {
             "name": sheet
         }
         apiReq('post', a, url, json.dumps(data))
         print('    添加表格')
-        url = r'https://graph.microsoft.com/v1.0/me/drive/root:/AutoApi/App' + \
+        url = r'https://graph.microsoft.com/v1.0/me/drive/root:/test/App' + \
             str(a)+r'/'+filesname+r':/workbook/worksheets/'+sheet+r'/tables/add'
         data = {
             "address": "A1:D8",
@@ -151,7 +151,7 @@ def excelWrite(a, filesname, sheet):
         }
         jsontxt = json.loads(apiReq('post', a, url, json.dumps(data)).text)
         print('    添加行')
-        url = r'https://graph.microsoft.com/v1.0/me/drive/root:/AutoApi/App' + \
+        url = r'https://graph.microsoft.com/v1.0/me/drive/root:/test/App' + \
             str(a)+r'/'+filesname+r':/workbook/tables/' + \
             jsontxt['id']+r'/rows/add'
         rowsvalues = [[0]*4]*2
@@ -298,7 +298,6 @@ def oneDrive(a):
             "folder": {}
         }
         apiReq('post', a, url, json.dumps(data))
-
     except:
         print("        操作中断")
         if sys._getframe().f_code.co_name not in log_list[a]:
@@ -338,7 +337,6 @@ def user(a):
         print('    删除用户')
         url = r'https://graph.microsoft.com/v1.0/users/MelissaD@tonylive.onmicrosoft.com'
         apiReq('delete', a, url)
-
     except:
         print("        操作中断")
         if sys._getframe().f_code.co_name not in log_list[a]:
@@ -405,7 +403,7 @@ for _ in range(1, config['rounds']+1):
             print('onenote操作')
             onenoteWrite(a, 'QVQ'+str(random.randint(1, 600)))
         if config['allstart'] == 1 or 5 in choosenum:
-            print('onenote操作')
+            print('oneDrive操作')
             oneDrive(a)
         if config['allstart'] == 1 or 6 in choosenum:
             print('user操作')

@@ -295,7 +295,8 @@ def oneDrive(a):
         url = r'https://graph.microsoft.com/v1.0/me/drive/root/children'
         data = {
             "name": "New Folder",
-            "folder": {}
+            "folder": {},
+            "@microsoft.graph.conflictBehavior": "rename"
         }
         apiReq('post', a, url, json.dumps(data))
     except:
@@ -331,11 +332,11 @@ def user(a):
             "surname": "Darrow",
             "mobilePhone": "+1 206 555 0110",
             "usageLocation": "US",
-            "userPrincipalName": "MelissaD@tonylive.onmicrosoft.com"
+            "userPrincipalName": "MelissaDTest@tonylive.onmicrosoft.com"
         }
         apiReq('post', a, url, json.dumps(data))
         print('    删除用户')
-        url = r'https://graph.microsoft.com/v1.0/users/MelissaD@tonylive.onmicrosoft.com'
+        url = r'https://graph.microsoft.com/v1.0/users/MelissaDTest@tonylive.onmicrosoft.com'
         apiReq('delete', a, url)
     except:
         print("        操作中断")

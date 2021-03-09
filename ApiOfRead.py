@@ -149,7 +149,7 @@ for a in range(0, app_count):
     access_token_list[a]=getmstoken(a)
 
 #随机api序列
-fixed_api=[0,1,5,6,20,21]
+fixed_api=[0,1,5,6,20,21,28,29,30]
 #保证抽取到outlook,onedrive的api
 ex_api=[2,3,4,7,8,9,10,22,23,24,25,26,27,13,14,15,16,17,18,19,11,12]
 #额外抽取填充的api

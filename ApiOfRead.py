@@ -66,6 +66,9 @@ api_list = [
            r"https://graph.microsoft.com/v1.0/me/messages?$filter=importance eq 'high'",
            r'https://graph.microsoft.com/v1.0/me/messages?$search="hello world"',
            r'https://graph.microsoft.com/beta/me/messages?$select=internetMessageHeaders&$top',
+           r'https://graph.microsoft.com/beta/me/insights/trending',
+           r'https://graph.microsoft.com/v1.0/me/todo/lists'
+           r"https://graph.microsoft.com/v1.0/users/?$filter=userType eq 'guest'"
            ]
 
 #微软refresh_token获取

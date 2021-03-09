@@ -341,7 +341,8 @@ def user(a):
         apiReq('delete', a, url)
     except Exception, e:
         print("        操作中断")
-        print(repr(e))
+        print(str(e)+repr(e))
+        print(e)
         if sys._getframe().f_code.co_name not in log_list[a]:
             log_list[a] = log_list[a]+sys._getframe().f_code.co_name+','
         return

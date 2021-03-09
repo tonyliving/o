@@ -339,7 +339,7 @@ def user(a):
         print('    删除用户')
         url = r'https://graph.microsoft.com/v1.0/users/MelissaDTest@tonylive.onmicrosoft.com'
         apiReq('delete', a, url)
-    except Exception, e:
+    except Exception as e:
         print("        操作中断")
         print(str(e)+repr(e))
         print(e)

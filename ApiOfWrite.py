@@ -5,6 +5,7 @@ import requests as req
 import json
 import sys
 import random
+import uuid
 
 if os.getenv('ACCOUNT') == '' or os.getenv('OTHER_CONFIG') == '':
     print("<<<<<<<<<<<<<配置初始化中>>>>>>>>>>>>>")
@@ -321,7 +322,7 @@ def user(a):
             "mailNickname": "MelissaD",
             "passwordPolicies": "DisablePasswordExpiration",
             "passwordProfile": {
-                "password": "d1faf460-5f61-9f92-02b4-2863ea517347",
+                "password":  uuid.uuid4(),
                 "forceChangePasswordNextSignIn": false
             },
             "officeLocation": "131/1105",

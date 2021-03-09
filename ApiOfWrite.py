@@ -322,7 +322,7 @@ def user(a):
             "mailNickname": "MelissaD",
             "passwordPolicies": "DisablePasswordExpiration",
             "passwordProfile": {
-                "password":  uuid.uuid4(),
+                "password":  str(uuid.uuid4()),
                 "forceChangePasswordNextSignIn": 'false'
             },
             "officeLocation": "131/1105",

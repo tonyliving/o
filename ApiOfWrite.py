@@ -312,7 +312,7 @@ def user(a):
         print('    创建用户')
         url = r'https://graph.microsoft.com/v1.0/users'
         data = {
-            "accountEnabled": true,
+            "accountEnabled": 'true',
             "city": "Seattle",
             "country": "United States",
             "department": "Sales & Marketing",
@@ -323,7 +323,7 @@ def user(a):
             "passwordPolicies": "DisablePasswordExpiration",
             "passwordProfile": {
                 "password":  uuid.uuid4(),
-                "forceChangePasswordNextSignIn": false
+                "forceChangePasswordNextSignIn": 'false'
             },
             "officeLocation": "131/1105",
             "postalCode": "98052",

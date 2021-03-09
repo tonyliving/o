@@ -109,7 +109,7 @@ def apiReq(method, a, url, data='QAQ'):
 
 # 上传文件到onedrive(小于4M)
 def uploadFile(a, filesname, f):
-    url = r'https://graph.microsoft.com/v1.0/me/drive/root:/new/App' + \
+    url = r'https://graph.microsoft.com/v1.0/me/drive/root:/test/App' + \
         str(a)+r'/'+filesname+r':/content'
     if apiReq('put', a, url, f).status_code >= 300:
         if sys._getframe().f_code.co_name not in log_list[a]:
@@ -293,7 +293,7 @@ def oneDrive(a):
     # 新建文件夹
     try:
         print('    新建文件夹')
-        url = r'https://graph.microsoft.com/v1.0/me/drive/root/children'
+        url = r'https://graph.microsoft.com/v1.0/me/drive/root:/test/App/children'
         data = {
             "name": "New Folder",
             "folder": {},

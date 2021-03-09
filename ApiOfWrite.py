@@ -339,8 +339,9 @@ def user(a):
         print('    删除用户')
         url = r'https://graph.microsoft.com/v1.0/users/MelissaDTest@tonylive.onmicrosoft.com'
         apiReq('delete', a, url)
-    except:
+    except Exception, e:
         print("        操作中断")
+        print(repr(e))
         if sys._getframe().f_code.co_name not in log_list[a]:
             log_list[a] = log_list[a]+sys._getframe().f_code.co_name+','
         return

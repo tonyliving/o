@@ -289,13 +289,13 @@ def sendTgBot(content):
     print('')
 
 
-def oneDrive(a):
+def oneDrive(a, folderName):
     # 新建文件夹
     try:
         print('    新建文件夹')
         url = r'https://graph.microsoft.com/v1.0/me/drive/items/01VV5E3CXJW3V5JZIDUFG3GZTTKOQN6GGR/children'
         data = {
-            "name": "New Folder",
+            "name": folderName,
             "folder": {},
             "@microsoft.graph.conflictBehavior": "rename"
         }
@@ -307,7 +307,7 @@ def oneDrive(a):
         return
 
 
-def user(a):
+def user(a, userName):
     try:
         print('    创建用户')
         url = r'https://graph.microsoft.com/v1.0/users'
@@ -333,11 +333,12 @@ def user(a):
             "surname": "Darrow",
             "mobilePhone": "+1 206 555 0110",
             "usageLocation": "US",
-            "userPrincipalName": "MelissaDTest@tonylive.onmicrosoft.com"
+            "userPrincipalName": userName+"@tonylive.onmicrosoft.com"
         }
         apiReq('post', a, url, json.dumps(data))
         print('    删除用户')
-        url = r'https://graph.microsoft.com/v1.0/users/MelissaDTest@tonylive.onmicrosoft.com'
+        url = r'https://graph.microsoft.com/v1.0/users/' + \
+            userName + '@tonylive.onmicrosoft.com'
         apiReq('delete', a, url)
     except Exception as e:
         print("        操作中断")
@@ -396,21 +397,21 @@ for _ in range(1, config['rounds']+1):
         choosenum = random.sample(range(1, 7), 2)
         if config['allstart'] == 1 or 1 in choosenum:
             print('excel文件操作')
-            excelWrite(a, filesname, 'QVQ'+str(random.randint(1, 600)))
+            excelWrite(a, filesname, 'Te'+str(random.randint(1, 600)))
         if config['allstart'] == 1 or 2 in choosenum:
             print('team操作')
-            teamWrite(a, 'QVQ'+str(random.randint(1, 600)))
+            teamWrite(a, 'Te'+str(random.randint(1, 600)))
         if config['allstart'] == 1 or 3 in choosenum:
             print('task操作')
-            taskWrite(a, 'QVQ'+str(random.randint(1, 600)))
+            taskWrite(a, 'Te'+str(random.randint(1, 600)))
         if config['allstart'] == 1 or 4 in choosenum:
             print('onenote操作')
-            onenoteWrite(a, 'QVQ'+str(random.randint(1, 600)))
+            onenoteWrite(a, 'Te'+str(random.randint(1, 600)))
         if config['allstart'] == 1 or 5 in choosenum:
             print('oneDrive操作')
-            oneDrive(a)
+            oneDrive(a, 'Te'+str(random.randint(1, 600)))
         if config['allstart'] == 1 or 6 in choosenum:
-            print('user操作')
+            print('user操作', 'Te'+str(random.randint(1, 600)))
             user(a)
         print('-')
 if other_config['tg_bot'] != []:

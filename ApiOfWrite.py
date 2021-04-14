@@ -411,8 +411,8 @@ for _ in range(1, config['rounds']+1):
             print('oneDrive操作')
             oneDrive(a, 'Te'+str(random.randint(1, 600)))
         if config['allstart'] == 1 or 6 in choosenum:
-            print('user操作', 'Te'+str(random.randint(1, 600)))
-            user(a)
+            print('user操作')
+            user(a,'Te'+str(random.randint(1, 600)))
         print('-')
 if other_config['tg_bot'] != []:
     content = 'AutoApi.W简报: '+'\n'

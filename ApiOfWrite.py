@@ -307,10 +307,11 @@ def oneDrive(a, folderName):
         return
 def test():
     try:
-	    a = r'h'
-	except:
-	    print("        操作中断")
-	return
+        print('test')
+       
+    except:
+        print("        操作中断")
+        return
 
 def user(a, userName):
     try:

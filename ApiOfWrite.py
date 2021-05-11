@@ -305,7 +305,12 @@ def oneDrive(a, folderName):
         if sys._getframe().f_code.co_name not in log_list[a]:
             log_list[a] = log_list[a]+sys._getframe().f_code.co_name+','
         return
-
+def test():
+    try:
+	    a = r'h'
+	except:
+	    print("        操作中断")
+	return
 
 def user(a, userName):
     try:

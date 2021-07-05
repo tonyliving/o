@@ -18,7 +18,7 @@ account_add=os.getenv('ACCOUNT_ADD').split(",")
 account_del=os.getenv('ACCOUNT_DEL')
 #更新？
 if account_del != '' or account_add != [''] :
-    print('<<<<<<<<<<<<<<<配置信息更新中>>>>>>>>>>>>>>>')
+    print('<<<<<<<<<<<<<<<配置信息更新中测试>>>>>>>>>>>>>>>')
 #删除？
 if account_del != '':
     print('删除账号中')
